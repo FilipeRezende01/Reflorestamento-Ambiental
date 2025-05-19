@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Reflorestamento</title>
+    <link rel="stylesheet" href="M1S07MiniProjeto.css" />
+</head>
+<body>
+    <nav class="menu-navegacao">
+        <ul>
+            <li><a href="#" id="linkReflorestamento">Cadastro de Plantio</a></li>
+            <li><a href="#" id="linkPerfil">Perfil</a></li>
+            <li><a href="#" id="linkRelatorio">Relatório</a></li>
+            <li><a href="#" id="linkDestaques">Destaques</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <form id="formularioCadastro">
+            <h2>Bem-vindo!</h2>
+            <br>
+            <h3>Acesse a plataforma de reflorestamento</h3>
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required placeholder="Identificação de usuário" />
+            <br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required placeholder="Senha" />
+            <br>
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="secaoTopUsuarios" style="display: none;">
+            <h3>Top Contribuidores de Reflorestamento</h3>
+            <div class="container-top-usuarios" id="containerTopUsuarios">
+            </div>
+        </div>
+
+        <div id="selecaoAvatar" style="display: none;">
+            <label>Escolha seu avatar de árvore:</label>
+            <div class="opcoes-avatar">
+                <img class="avatar" src="https://sitiomorrinhos.com.br/wp-content/uploads/2022/03/im-pau-brasil-1.jpeg"
+                    data-arvore="pau-brasil" alt="Pau-Brasil" title="Pau-Brasil" />
+                <img class="avatar"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4k0Q63lF7OnzEu_nnhRenk5W80wAyeA32_SAkveHt-Ywqmr_1kgdQpv9hKTOQdWeBpZiL4nYrouJ17kTOwh2lr8KMXJ1jOnwRopWYU6RjU6FDglR1vDbw7huexH3qUWlyt8XXpYJIHa2U/s1600/castanheira.JPG"
+                    data-arvore="castanheira" alt="Castanheira" title="Castanheira" />
+                <img class="avatar"
+                    src="https://reinometaphyta.wordpress.com/wp-content/uploads/2012/06/aspidosperma_polyneuron_apocynaceae.jpg"
+                    data-arvore="peroba-rosa" alt="Peroba-Rosa" title="Peroba-Rosa" />
+            </div>
+        </div>
+
+        <div id="secaoBemVindo" style="display: none;">
+        </div>
+
+        <div id="formularioReflorestamento" style="display: none;">
+            <h3>Cadastro de Ações de Reflorestamento</h3>
+            <form id="formularioPlantio">
+                <label for="especieArvore">Espécie de Árvore:</label>
+                <select id="especieArvore" required>
+                    <option value="">Selecione uma espécie</option>
+                    <option value="ipe">Ipê</option>
+                    <option value="angico">Angico</option>
+                    <option value="aroeira">Aroeira</option>
+                    <option value="jequitiba">Jequitibá</option>
+                    <option value="peroba-campo">Peroba do Campo</option>
+                </select>
+
+                <label for="quantidadeArvores">Quantidade:</label>
+                <input type="number" id="quantidadeArvores" min="1" required placeholder="Número de árvores plantadas">
+
+                <label for="dataPlantio">Data do Plantio:</label>
+                <input type="date" id="dataPlantio" required>
+
+                <button type="submit">Registrar Plantio</button>
+            </form>
+            <button id="voltarPainel">Voltar ao Painel</button>
+        </div>
+
+        <div id="secaoPerfil" style="display: none;">
+            <div class="cabecalho-perfil">
+                <img id="avatarPerfil" src="" alt="Avatar" class="avatar-perfil">
+                <h2 id="nomeUsuario"></h2>
+                <p class="contador-arvores" id="contadorArvores">Árvores plantadas: 0</p>
+            </div>
+
+            <div class="biografia-perfil">
+                <h3>Biografia</h3>
+                <textarea id="biografiaUsuario" placeholder="Escreva algo sobre você..."></textarea>
+                <button id="salvarBiografia">Salvar Biografia</button>
+            </div>
+
+            <div class="estatisticas-perfil">
+                <h3>Meu Progresso</h3>
+                <div class="container-imagem-progresso">
+                    <img id="imagemProgresso" src="" alt="Estágio atual" class="imagem-progresso">
+                </div>
+                <div class="barra-progresso">
+                    <div class="preenchimento-progresso" id="preenchimentoProgresso"></div>
+                </div>
+                <div class="marcadores">
+                    <div class="marcador" data-objetivo="100">Plantada</div>
+                    <div class="marcador" data-objetivo="300">Broto</div>
+                    <div class="marcador" data-objetivo="700">Jovem</div>
+                    <div class="marcador" data-objetivo="1500">Madura</div>
+                </div>
+            </div>
+
+            <button id="voltarPainelDoPerfil">Voltar ao Painel</button>
+        </div>
+
+        <div id="secaoRelatorio" style="display: none;">
+            <h3>Relatório de Reflorestamento</h3>
+            <form id="formularioRelatorio">
+                <label for="usuarioRelatorio">Usuário (opcional):</label>
+                <input type="text" id="usuarioRelatorio" placeholder="Filtrar por usuário">
+                
+                <label for="especieRelatorio">Espécie de Árvore (opcional):</label>
+                <select id="especieRelatorio">
+                    <option value="">Todas as espécies</option>
+                    <option value="ipe">Ipê</option>
+                    <option value="angico">Angico</option>
+                    <option value="aroeira">Aroeira</option>
+                    <option value="jequitiba">Jequitibá</option>
+                    <option value="peroba-campo">Peroba do Campo</option>
+                </select>
+                
+                <button type="submit">Buscar</button>
+            </form>
+            
+            <div id="resultadosRelatorio">
+            </div>
+            
+            <button id="voltarPainelDoRelatorio">Voltar ao Painel</button>
+        </div>
+    </div>
+
+    <script src="M1S07MiniProjeto.js"></script>
+</body>
+</html>
